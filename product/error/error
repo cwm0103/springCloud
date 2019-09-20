@@ -1,0 +1,6 @@
+1.  在使用SpringCloud的@LoadBalanced注解配置RestTemplate时候,无论怎么调用服务总是报错如下:
+
+    org.springframework.web.util.NestedServletException: Request processing failed; nested exception is java.lang.IllegalStateException: Request URI does not contain a valid hostname:  http://PRODUCT_TEST/msg
+
+    解决方案：
+    使用@LoadBalanced注解实现负载均衡的时候，服务名称不能带有下划线。
