@@ -1,0 +1,19 @@
+eureka:
+  client:
+    service-url:
+      defaultZone: http://192.168.5.200:8761/eureka/
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/springCloud?characterEncoding=utf-8&serverTimezone=UTC
+    username: root
+    password: root
+  jpa:
+    show-sql: true
+  application:
+    name: order
+
+server:
+  port: 8082
+env: test

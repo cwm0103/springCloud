@@ -1,0 +1,9 @@
+1. /{name}-{profiles}.yml
+
+2. /{lable}/{name}-{profiles}.yml
+
+name 服务名称
+
+profiles 环境名称
+
+lable git 分支名称
