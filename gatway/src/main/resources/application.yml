@@ -1,0 +1,45 @@
+eureka:
+  client:
+    service-url:
+      defaultZone: http://192.168.5.200:8761/eureka/
+
+spring:
+  application:
+    name: gatway
+
+server:
+  port: 9000
+
+
+
+zuul:
+  routes:
+    cwm:    #自定义路由路径
+      path: /myproduct/**
+      serviceId: product
+      sensitiveHeaders:   #设置获取cookie 的
+#    product: /myproduct/**
+  host:
+    connect-timeout-millis: 15000 #HTTP连接超时要比Hystrix的大
+    socket-timeout-millis: 60000   #socket超时
+  ignored-patterns:
+#    - /product/product/list    #禁止访问
+#    - /myproduct/product/list
+#    - /**/product/list          #通配符禁止访问
+
+
+
+ribbon:
+  ReadTimeout: 10000
+  ConnectTimeout: 10000
+
+#显示路由zuul的端口配置，不配置无法访问 /routes
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+      health:
+        show-details: ALWAYS
+

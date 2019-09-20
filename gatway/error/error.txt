@@ -1,0 +1,30 @@
+1. com.netflix.zuul.exception.ZuulException: Hystrix Readed time out
+
+   这个错误是应为zuul的默认超时时间比较小，我们配置下zuul的超时时间，因zuul启用了ribbon的负载均衡，
+   还需要设置ribbon的超时时间，注意ribbon的超时时间要小于zuul超时时间 。
+
+   zuul:
+     host:
+       connect-timeout-millis: 15000 #HTTP连接超时要比Hystrix的大
+       socket-timeout-millis: 60000   #socket超时
+
+   ribbon:
+     ReadTimeout: 10000
+     ConnectTimeout: 10000
+
+2. 查看路由的   所有路径
+
+    /actuator/routes/details
+
+    配置
+
+    #显示路由zuul的端口配置，不配置无法访问 /routes
+    management:
+      endpoints:
+        web:
+          exposure:
+            include: "*"
+      endpoint:
+          health:
+            show-details: ALWAYS
+
