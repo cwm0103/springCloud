@@ -11,3 +11,25 @@ eureka:
     fetch-registry: false #此客户端是否获取eureka服务器注册表上的注册信息,默认为true
   server:
     enable-self-preservation: false #关闭警告
+
+# 配置 actuator
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,* #httptrace,env  # 包含端点，可以访问；多端点之间用逗号分隔
+#        exclude: shutdown,info  # 排除端点，不可访问；多端点之间用逗号分隔
+  info:
+    env:
+      enabled: true
+  endpoint:
+    health:
+      enabled: true
+      show-details: always  #配置展示
+        　　　　     #never：从不展示详情（默认）
+                    #when-authorized：详情只展示给授权用户，授权角色可使用 management.endpoint.health.roles 进行配置
+                    #always：展示详情给所有用户
+  server:
+    port: 1000  #配置访问端口
+
+
