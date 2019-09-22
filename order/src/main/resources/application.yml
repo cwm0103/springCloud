@@ -52,6 +52,7 @@ eureka:
     service-url:
       defaultZone: http://localhost:8761/eureka/ #http://admin:123456@192.168.5.200:8761/eureka/ #http://192.168.5.201:8761/eureka/
 
+# Feign 本身支持Hystrix，不再需要引入相关的jar  Feign 本身支持Hystrix，不再需要引入相关的jar
 feign:
   hystrix:
     enabled: true
