@@ -26,9 +26,7 @@ management:
     health:
       enabled: true
       show-details: always  #配置展示
-        　　　　     #never：从不展示详情（默认）
-                    #when-authorized：详情只展示给授权用户，授权角色可使用 management.endpoint.health.roles 进行配置
-                    #always：展示详情给所有用户
+
   server:
     port: 1000  #配置访问端口
 
