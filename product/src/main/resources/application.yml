@@ -13,13 +13,13 @@ spring:
   jpa:
     show-sql: true
   rabbitmq:
-    host: 192.168.5.200 #注册rabbitmq 地址
+    host: 192.168.5.212 #注册rabbitmq 地址
     port: 5672
     username: guest
     password: guest
 
   zipkin:
-    base-url:  http://192.168.5.200:9411
+    base-url:  http://192.168.5.212:9411
     sender:
       type: web
   sleuth:
@@ -40,12 +40,12 @@ spring:
 #          group: abc1
 #          destination: cwmtest
 #          content-type: application/json
-    stream:
-      bindings:
-        inputOrder:
-#          group: abc1
-          destination: order
-          content-type: application/json
+  stream:
+    bindings:
+      inputOrder:
+#       group: abc1
+        destination: order
+        content-type: application/json
 #redis 的连接地址
 #  redis:
 #    database: 0
