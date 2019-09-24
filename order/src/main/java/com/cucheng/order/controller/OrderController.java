@@ -10,8 +10,14 @@ import com.cucheng.order.from.FromOrder;
 import com.cucheng.order.service.OrderService;
 import com.cucheng.order.utils.ResultUtils;
 import com.cucheng.order.viewModel.ResultVM;
+import com.cucheng.utils.Result;
+import com.fasterxml.jackson.databind.util.JSONPObject;
+import com.google.gson.JsonObject;
 import lombok.extern.slf4j.Slf4j;
+import net.sf.json.JSONArray;
+import net.sf.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.util.CollectionUtils;
@@ -70,10 +76,10 @@ public class OrderController {
     }
 
     @GetMapping("/plist")
-    public List<ProductInfo> getProductInfoList()
+    public Result<List<ProductInfo>>  getProductInfoList()
     {
-        List<ProductInfo> productList = productController.getProductList();
-        return productList;
+        return  productController.getProductList();
+
     }
 
 //    @GetMapping("/evn")
@@ -81,4 +87,28 @@ public class OrderController {
 //    {
 //        return env;
 //    }
+
+    @GetMapping("/json")
+    public Result<JSONObject> getJson()
+    {
+        return  productController.getJsonObject();
+    }
+
+    @GetMapping("jsonArray")
+    public Result<JSONArray> getArray()
+    {
+        return productController.getJsonArray();
+    }
+
+    @GetMapping("int")
+    public Result<Integer> getInt()
+    {
+       return productController.getInt();
+    }
+
+    @GetMapping("String")
+    public Result<String> getString()
+    {
+        return productController.getString();
+    }
 }
