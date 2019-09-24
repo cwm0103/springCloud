@@ -93,6 +93,19 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-zipkin</artifactId>
         </dependency>
+        <!-- cwm 配置 actuator-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+        <!--jsonObject 的使用-->
+        <dependency>
+            <groupId>net.sf.json-lib</groupId>
+            <artifactId>json-lib</artifactId>
+            <version>2.4</version>
+            <classifier>jdk15</classifier>
+        </dependency>
+
         <!--jdk12 以上需要引用一下依赖-->
         <dependency>
             <groupId>javax.xml.bind</groupId>
@@ -114,7 +127,12 @@
             <artifactId>activation</artifactId>
             <version>1.1.1</version>
         </dependency>
-
+        <!--cwm 2019-9-24 引入工具包-->
+        <dependency>
+            <groupId>com.cucheng</groupId>
+            <artifactId>utils</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
 
     </dependencies>
 
